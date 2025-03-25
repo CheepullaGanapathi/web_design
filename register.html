@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="register.css" />
+</head>
+
+<body>
+    <div class="glowing-bg"></div> <!-- Full Animated Background -->
+    <div class="container">
+        <div class="register-box">
+            <h2>Register</h2>
+            <form action="register.php" method="POST">
+                <input type="text" name="first_name" placeholder="First Name" required />
+                <input type="text" name="last_name" placeholder="Last Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="password" placeholder="Password" required />
+
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="Male" required> Male</label>
+                        <label><input type="radio" name="gender" value="Female" required> Female</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Country:</label>
+                    <select name="country" required>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Europe">Europe</option>
+                    </select>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let inputs = document.querySelectorAll("input, select");
+
+        inputs.forEach((input) => {
+            input.addEventListener("blur", function () {
+                if (!this.value.trim()) {
+                    this.style.border = "2px solid red"; // Highlight empty fields
+                } else {
+                    this.style.border = "2px solid #ccc"; // Reset when filled
+                }
+            });
+
+            // Remove red border when user starts typing
+            input.addEventListener("input", function () {
+                this.style.border = "2px solid #ccc";
+            });
+        });
+    });
+</script>
+
+</html>
