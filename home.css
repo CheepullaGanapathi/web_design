@@ -1,100 +1,174 @@
-/* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 230, 118, 0.8));
-    height: 100vh;
+    background-color: #f3f2ef;
+}
+
+.navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-left {
+    display: flex;
     align-items: center;
 }
 
-.container {
-    width: 90%;
-    max-width: 800px;
-    background: rgba(255, 255, 255, 0.9);
+.logo {
+    width: 40px;
+    margin-right: 15px;
+}
+
+.search-bar {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    width: 400px;
+}
+
+.nav-center a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-center a:hover {
+    color: #fbbc05;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    color: white;
+}
+
+.content {
+    display: flex;
+    margin-top: 100px;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.sidebar, .trending {
+    width: 20%;
+    padding: 10px;
+}
+
+.profile-card {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.main-content {
+    width: 55%;
+    background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Header */
-header h1 {
-    color: #007BFF;
-    font-size: 28px;
-}
-
-header p {
-    color: #333;
-    margin-top: 5px;
-}
-
-/* Navigation */
-nav ul {
-    list-style: none;
-    margin: 20px 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    background: #007BFF;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    background: #0056b3;
-}
-
-/* Cards */
-main {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.card {
-    background: #fff;
+.post-box {
+    background: white;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 45%;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.post-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-/* Logout Button */
-.logout-btn {
-    background: #ff3b3b;
+.post-actions button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
-.logout-btn:hover {
-    background: #cc0000;
+.create-btn {
+    background-color: #0056b3;
+    color: white;
+    transition: background 0.3s ease;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.create-btn:hover {
+    background-color: #003d80;
+}
+
+.video-btn {
+    background-color: #2ca58d;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.video-btn:hover {
+    background-color: #1f7a67;
+}
+
+.article-btn {
+    background-color: #f68b1e;
+    color: white;
+    transition: background 0.3s ease;
+}
+
+.article-btn:hover {
+    background-color: #c76d14;
+}
+
+
+.trending {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.trending ul {
+    list-style: none;
+}
+
+.trending li {
+    margin: 10px 0;
 }

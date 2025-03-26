@@ -3,35 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>LinkedIn-Style Navbar</title>
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Welcome to Your Dashboard</h1>
-            <p>Explore your account and manage your activities.</p>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="logout.php" class="logout-btn">Logout</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <div class="card">
-                <h2>Latest Updates</h2>
-                <p>Stay updated with the latest features and announcements.</p>
+    <nav class="navbar">
+        <div class="nav-left">
+            <img src="logo.jpg" alt="Logo" class="logo"> <!-- Add your logo here -->
+            <input type="text" placeholder="Search" class="search-bar">
+        </div>
+        <div class="nav-center">
+            <a href="#">Home</a>
+            <a href="#">My Network</a>
+            <a href="#">Jobs</a>
+            <a href="#">Messaging</a>
+            <a href="#">Notifications</a>
+        </div>
+        <div class="nav-right">
+            <img src="user.avif" alt="User" class="profile-pic"> <!-- Add user profile image -->
+            <span class="username">User</span>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <aside class="sidebar"> <!-- Left Sidebar -->
+            <div class="profile-card">
+                <img src="user.avif" alt="Profile Picture" class="profile-image">
+                <h3>User</h3>
+                <p>Profile viewers: 50</p>
+                <p>Post impressions: 1</p>
             </div>
-            <div class="card">
-                <h2>Your Activities</h2>
-                <p>Track your recent actions and progress.</p>
+        </aside>
+        
+        <main class="main-content"> <!-- Main Feed -->
+            <div class="post-box">
+                <input type="text" placeholder="Start a post...">
+                <div class="post-actions">
+                    <button class="create-btn">Create</button>
+                    <button class="video-btn">Video</button>
+                    <button class="article-btn">Article</button>
+                </div>
             </div>
         </main>
+        
+        <aside class="trending"> <!-- Right Sidebar -->
+            <h3>Trending Now</h3>
+            <ul>
+                <li>Wipro lands $650 million deal</li>
+                <li>BSE tops global markets</li>
+                <li>Top skills on the rise in India</li>
+            </ul>
+        </aside>
     </div>
 </body>
 </html>
