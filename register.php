@@ -18,7 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 }
 
 // Check if all form fields are set
-if (empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['gender']) || empty($_POST['country'])) {
+if (
+    empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || 
+    empty($_POST['password']) || empty($_POST['gender']) || empty($_POST['country']) || 
+    empty($_POST['dob'])
+) {
     die("All fields are required.");
 }
 
@@ -29,6 +33,7 @@ $email = trim($_POST['email']);
 $password = trim($_POST['password']);
 $gender = trim($_POST['gender']);
 $country = trim($_POST['country']);
+$dob = trim($_POST['dob']);
 
 // Validate first and last name (only letters and spaces allowed)
 if (!preg_match("/^[a-zA-Z ]+$/", $first_name) || !preg_match("/^[a-zA-Z ]+$/", $last_name)) {
@@ -40,7 +45,12 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     die("Invalid email format.");
 }
 
-// Validate password strength (minimum 6 characters)
+// Validate date of birth format (YYYY-MM-DD)
+if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $dob)) {
+    die("Invalid Date of Birth format. Use YYYY-MM-DD.");
+}
+
+// Validate password strength (minimum 4 characters)
 if (strlen($password) < 4) {
     die("Password must be at least 4 characters long.");
 }
@@ -60,12 +70,12 @@ $check_email->close();
 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
 // Prepare SQL query to insert user data
-$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, gender, country) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $first_name, $last_name, $email, $hashed_password, $gender, $country);
+$stmt = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, gender, country, dob) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $first_name, $last_name, $email, $hashed_password, $gender, $country, $dob);
 
 // Execute the query and redirect to success page
 if ($stmt->execute()) {
-    header("Location:success.html");
+    header("Location: success.html");
     exit();
 } else {
     die("Error: " . $stmt->error);

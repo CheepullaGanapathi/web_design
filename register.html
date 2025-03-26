@@ -19,6 +19,13 @@
                 <input type="email" name="email" placeholder="Email" required />
                 <input type="password" name="password" placeholder="Password" required />
 
+                <!-- Date of Birth Field -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" name="dob" id="dob" required />
+
+                </div>
+
                 <div class="form-group">
                     <label>Gender:</label>
                     <div class="gender-options">
@@ -30,10 +37,10 @@
                 <div class="form-group">
                     <label>Country:</label>
                     <select name="country" required>
-                        <option value="India">India</option>
+                        <option value="India">INDIA</option>
                         <option value="USA">USA</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Europe">Europe</option>
+                        <option value="Canada">CANADA</option>
+                        <option value="Europe">EUROPE</option>
                     </select>
                 </div>
 
@@ -42,8 +49,8 @@
         </div>
     </div>
 </body>
-<script>
 
+<script>
     document.addEventListener("DOMContentLoaded", function () {
         let inputs = document.querySelectorAll("input, select");
 
